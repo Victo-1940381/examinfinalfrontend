@@ -30,4 +30,4 @@ complete Bool,
 foreign key (tache_id) references public.taches(id)
 );
 
-insert into public.utilisateur(nom, prenom, courriel, cle_api, password) values('provost','ludovic','1940381@gmail.com','12345ludo', SHA256('admin'));
+insert into public.utilisateur(nom, prenom, courriel, cle_api, password) values('provost','ludovic','1940381@gmail.com','12345ludo', '$2b$10$zl1IwlD599WH90H/v26kou6Zbx2FtjHlHVpVnYyqNtaIwmYpQRVj.');
