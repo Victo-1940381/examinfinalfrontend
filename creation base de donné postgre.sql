@@ -18,7 +18,9 @@ description varchar(500),
 date_debut Date,
 date_echeance Date,
 complete Bool,
-foreign key (utilisateur_id) references public.utilisateur(id)
+
+constraint fk_utilisateur foreign key (utilisateur_id)
+references public.utilisateur(id) on delete cascade
 );
 
 drop  table if exists public.sous_taches cascade ;
@@ -27,7 +29,11 @@ id serial primary key,
 tache_id integer,
 titre varchar(100),
 complete Bool,
-foreign key (tache_id) references public.taches(id)
+constraint fk_tache foreign key (tache_id) 
+references public.taches(id) on delete cascade
 );
 
 insert into public.utilisateur(nom, prenom, courriel, cle_api, password) values('provost','ludovic','1940381@gmail.com','12345ludo', '$2b$10$zl1IwlD599WH90H/v26kou6Zbx2FtjHlHVpVnYyqNtaIwmYpQRVj.');
+insert into public.taches (utilisateur_id,titre,description,date_debut,date_echeance,complete) values('1','finir docs api','je dois fini les doc de api',null,null,false );
+insert into public.sous_taches (tache_id,titre,complete) values('1','finir  la section path', false );
+select * from public.taches;
